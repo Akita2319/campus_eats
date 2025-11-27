@@ -9,14 +9,14 @@
 <body>
   <header class="site-header">
     <div class="logo">近飯！</div>
-    <div class="header-sub">KIND MESHI — 近大生のためのグルメガイド</div>
+    <div class="header-sub">KIN MESHI — 近大生のためのグルメガイド</div>
   </header>
 
   <main class="container">
     <!-- 検索バー -->
     <section class="search-wrap">
       <%= form_with url: shops_path, method: :get, local: true, class: "search-form" do %>
-        <%= text_field_tag :keyword, params[:keyword], placeholder: "店名で検索...（例：カフェ／ラーメン）", class: "search-input" %>
+        <%= text_field_tag :keyword, params[:keyword], placeholder: "店名で検索...（例：スシロー／焼肉）", class: "search-input" %>
         <%= submit_tag "検索", class: "search-btn" %>
       <% end %>
     </section>

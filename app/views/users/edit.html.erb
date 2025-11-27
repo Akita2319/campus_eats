@@ -1,0 +1,29 @@
+<h1>ユーザー情報編集</h1>
+
+<%= form_with(model: @user, local: true) do |form| %>
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+
+  <p>
+    <%= form.label :email %><br>
+    <%= form.email_field :email %>
+  </p>
+
+  <p>
+    <%= form.label :password %> (変更する場合のみ)<br>
+    <%= form.password_field :password %>
+  </p>
+
+  <p>
+    <%= form.label :password_confirmation %><br>
+    <%= form.password_field :password_confirmation %>
+  </p>
+
+  <p>
+    <%= form.submit "更新" %>
+  </p>
+<% end %>
+
+<%= link_to "マイページに戻る", user_path %>

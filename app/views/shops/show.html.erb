@@ -9,7 +9,7 @@
 
 <h3>口コミ投稿</h3>
 <%= form_with model: [@shop, Review.new], local: true do |f| %>
-  <%= f.text_area :content %>
-  <%= f.number_field :rating, in: 1..5 %>
-  <%= f.submit "投稿" %>
+ 
+  
+  <%= render 'reviews/form', shop: @shop %>
 <% end %>

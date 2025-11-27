@@ -1,0 +1,26 @@
+<%= form_with(model: [@shop, @shop.reviews.build], local: true) do |f| %>
+  <% if @shop.reviews.build.errors.any? %>
+    <div class="errors">
+      <h2><%= pluralize(@shop.reviews.build.errors.count, "error") %> が発生しました:</h2>
+      <ul>
+        <% @shop.reviews.build.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= f.label :comment, "コメント" %><br>
+    <%= f.text_area :comment, rows: 4 %>
+  </div>
+
+  <div>
+    <%= f.label :rating, "評価（1〜5）" %><br>
+    <%= f.number_field :rating, in: 1..5 %>
+  </div>
+
+  <div>
+    <%= f.submit "レビュー投稿" %>
+  </div>
+<% end %>
