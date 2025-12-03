@@ -17,8 +17,4 @@ production:
   url: <%= ENV['DATABASE_URL'] %>
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
-  # cable database が必要なので追加
-  cable:
-    adapter: postgresql
-    url: <%= ENV['DATABASE_URL'] %>
-    pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
