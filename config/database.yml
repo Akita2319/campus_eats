@@ -14,10 +14,11 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
+  # Render では DATABASE_URL が自動的に設定されます
   url: <%= ENV['DATABASE_URL'] %>
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
-# Action Cable 用の設定（本番用）
+# Action Cable 用設定（本番のみ）
 cable:
   production:
     adapter: postgresql
