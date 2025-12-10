@@ -14,11 +14,16 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
-  # Render では DATABASE_URL が自動的に設定されます
-  url: <%= ENV['DATABASE_URL'] %>
+  url: <%= ENV['postgresql://campus_eats_db_user:77g5n81nmb78t1iuTcoSlbpHVROFt3pl@dpg-d4ntt48gjchc73c66u10-a/campus_eats_db'] %>
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
-# Action Cable 用設定（本番のみ）
+# SolidQueue 用 (Rails 8 デフォルトジョブキュー)
+queue:
+  adapter: postgresql
+  encoding: unicode
+  url: <%= ENV['DATABASE_URL'] %>
+
+# Action Cable 用設定
 cable:
   production:
     adapter: postgresql
