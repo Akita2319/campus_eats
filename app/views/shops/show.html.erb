@@ -4,12 +4,13 @@
 
 <h2>口コミ一覧</h2>
 <% @reviews.each do |review| %>
-  <p><strong><%= review.user.name %></strong>: <%= review.content %> ⭐<%= review.rating %></p>
+  <p>
+    <strong><%= review.user&.name || "匿名" %></strong>:
+    <%= review.comment %> ⭐<%= review.rating %>
+  </p>
 <% end %>
 
 <h3>口コミ投稿</h3>
 <%= form_with model: [@shop, Review.new], local: true do |f| %>
- 
-  
-  <%= render 'reviews/form', shop: @shop %>
+  <%= render 'reviews/form', shop: @shop, f: f %>
 <% end %>
